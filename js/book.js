@@ -4,10 +4,12 @@ const searchBook = () => {
   const searchText = searchField.value;
   searchField.value = "";
   document.getElementById("noResultFound").style.display = "block";
+    //Showing Books
   if (searchText === null) {
     document.getElementById("noResultFound").style.display = "block";
   } else {
-    //Showing Books
+  
+  //ur1 for display books & details
     const url1 = `https://openlibrary.org/search.json?q=${searchText}`;
     fetch(url1)
       .then((res) => res.json())
@@ -32,11 +34,10 @@ const displayResult = (noOfBook) => {
 };
 
 const displaySearchResult = (bookData) => {
-  const searchResult = document.getElementById("search-result");
+const searchResult = document.getElementById("search-result");
 
   searchResult.textContent = "";
   bookData.slice(0, 30).forEach((book) => {
-    // console.log(index)
     const div = document.createElement("div");
     div.classList.add("col");
     div.innerHTML = `
